@@ -74,3 +74,11 @@ or
 ```shell
 npm run lint
 ```
+
+# FAQ
+1. Why do I use Vuex for state management?
+    - I used Vuex because I prefer this state management. Additionally, I wanted to show that I know this library and I know how to use this library.
+2. Why do I use other components with Kongponents like a KEmptyState and KSkeleton?
+    - I wanted to provide UX support for handling all states like Loading when user is waiting for data, Empty State when there is no data or Error State when something went wrong. I found it best to use ready-made components, especially since they are ready in the Kongponents library. Additionally, I was able to fix a bug in KSkeleton.
+3. What flow did I use for communication between components?
+    - I used flow Smart-Dumb Component, where a Smart component is a container that gets data from the Store, and Dumb Components are components that have no logic, they only present the data.

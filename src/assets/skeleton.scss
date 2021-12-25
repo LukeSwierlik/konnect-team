@@ -1,0 +1,17 @@
+// I used "!Important" on purpose because I had to overwrite the styles from the KSkeleton component.
+.skeleton-card {
+    $grandpaTag: &;
+    height: 10rem !important;
+
+    &-wrapper {
+        width: inherit !important;
+        margin: 0 -1rem !important;
+        gap: 0 !important;
+
+        #{$grandpaTag}-column {
+            padding: 0 1rem !important;
+            width: var(--KSkeletonCardWidth, 33.3333333%) !important;
+            box-sizing: border-box;
+        }
+    }
+}
