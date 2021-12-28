@@ -6,13 +6,11 @@ export const servicesActions = {
   fetchServicesActions (context): void {
     context.commit(MutationTypes.LOADED_SERVICES);
 
-    setTimeout(() => {
-      fetchServices().then((res) => {
-        context.commit(MutationTypes.LOADED_SERVICES_SUCCESS, res.data);
-      }).catch(error => {
-        context.commit(MutationTypes.LOADED_SERVICES_FAILURE, error as Error);
-      });
-    }, 500);
+    fetchServices().then((res) => {
+      context.commit(MutationTypes.LOADED_SERVICES_SUCCESS, res.data);
+    }).catch(error => {
+      context.commit(MutationTypes.LOADED_SERVICES_FAILURE, error as Error);
+    });
   },
   setStatus (context, status: ServicesStateView): void {
     context.commit(MutationTypes.SET_STATUS, status);
