@@ -1,9 +1,9 @@
 <template>
   <section>
     <div class="hero">
-      <h1 class="title">
+      <h2 class="title">
         Services
-      </h1>
+      </h2>
 
       <div>
         <button
@@ -78,17 +78,17 @@ export default Vue.extend({
 
 .title {
   font-weight: bold;
-  font-size: 1.6rem;
-  color: #0a2b66;
+  font-size: var(--font-heading-2);
+  color: var(--title-color);
 }
 
 .action {
   padding: 0.5rem 0.8rem;
   font-size: 1rem;
   color: #ffffff;
-  background: #1456cb;
+  background: var(--primary-color);
   border: 0;
-  border-radius: 0.3rem;
+  border-radius: var(--border-radius-type-1);
   cursor: pointer;
 
   &:active {
@@ -123,8 +123,8 @@ export default Vue.extend({
     padding: 0.5rem 1em 0.5rem 2rem;
     font-size: 1rem;
     color: rgba(0, 0, 0, 0.45);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 0.3rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-type-2);
     box-sizing: border-box;
     width: 100%;
 

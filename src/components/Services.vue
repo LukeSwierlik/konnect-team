@@ -16,9 +16,9 @@
         </template>
 
         <template slot="body">
-          <div class="card-body">
+          <p class="card-body">
             {{ service.description }}
-          </div>
+          </p>
 
           <div class="card-footer">
             <div class="card-footer-badge">
@@ -141,17 +141,17 @@ export default Vue.extend({
     padding: 2rem 1rem;
     min-width: 0;
     min-height: 0;
-    border-radius: 0.4rem;
+    border-radius: var(--border-radius-type-4);
 
     &:hover {
-      border: 1px solid #A6C6FF;
+      border: 1px solid var(--primary-color-hover);
       cursor: pointer;
     }
 
     &-title {
-      font-size: 1rem;
+      font-size: var(--font-heading-4);
       font-weight: bold;
-      color: #1456cb;
+      color: var(--primary-color);
       width: 100%;
       text-overflow: ellipsis;
       white-space: nowrap;
@@ -159,7 +159,7 @@ export default Vue.extend({
     }
 
     &-body {
-      font-size: 0.85rem;
+      font-size: var(--font-paragraph);
       color: rgba(0, 0, 0, 0.45);
       line-height: 1.2rem;
       display: -webkit-box;
@@ -173,15 +173,15 @@ export default Vue.extend({
 
     &-footer {
       margin-top: 1rem;
-      font-size: 0.8rem;
+      font-size: var(--font-span);
 
       &-badge {
         font-weight: bold;
         line-height: 1;
-        color: #1456cb;
+        color: var(--primary-color);
         display: inline-block;
         border-radius: 40px;
-        border: 1px solid #d9e7ff;
+        border: 1px solid var(--secondary-color);
         padding: 0.2rem 0.7rem;
         margin-right: 0.5rem;
       }

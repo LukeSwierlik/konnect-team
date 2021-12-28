@@ -8,9 +8,7 @@
       @click="previousPage"
     >
       <img
-        class="reversed"
-        height="44px"
-        width="44px"
+        class="reversed arrow-icon"
         :src="
           isFirstPage
             ? images.greyArrow
@@ -31,8 +29,7 @@
       @click="nextPage"
     >
       <img
-        height="44px"
-        width="44px"
+        class="arrow-icon"
         :src="
           isLastPage
             ? images.greyArrow
@@ -100,6 +97,11 @@ export default Vue.extend({
     display: block;
     background: none;
     border: none;
+
+    &.icon {
+      width: 44px;
+      height: 44px;
+    }
 
     &:active {
       transform: translateY(1px);
