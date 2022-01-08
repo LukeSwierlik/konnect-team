@@ -38,9 +38,6 @@ import Debounce from 'lodash/debounce';
 export default Vue.extend({
   name: 'Hero',
   props: {
-    searchServices: {
-      type: Function
-    },
     servicesStateView: {
       type: String as PropType<ServicesStateView>,
       default: ServicesStateView.EMPTY
@@ -56,7 +53,7 @@ export default Vue.extend({
   },
   methods: {
     debounceInput (e) {
-      this.searchServices(e.target.value);
+      this.$emit('searchServices', e.target.value);
     }
   }
 });

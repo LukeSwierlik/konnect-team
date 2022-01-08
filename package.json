@@ -45,6 +45,7 @@
     "eslint-plugin-vue": "7.0.0",
     "faker": "^5.2.0",
     "inject-loader": "^4.0.1",
+    "jest": "^27.4.7",
     "json-server": "^0.16.3",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",

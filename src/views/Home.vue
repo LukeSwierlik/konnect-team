@@ -1,7 +1,7 @@
 <template>
   <main class="container">
     <Hero
-      :search-services="searchServices"
+      @searchServices="searchServices"
       :services-state-view="getServicesStateView"
     />
     <Services
@@ -74,6 +74,7 @@ export default Vue.extend({
       'setStatus'
     ]),
     searchServices (value: string): void {
+      console.log('value', value);
       this.listServices = this.getFilterServices(value);
       if (this.listServices.length) {
         this.setStatus(ServicesStateView.SERVICES);
