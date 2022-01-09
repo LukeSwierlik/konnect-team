@@ -33,11 +33,11 @@ export default {
         logo: require('../assets/Konnect.svg'),
         notifications: require('../assets/Notifications.svg'),
         help: require('../assets/Help.svg'),
-        avatar: require('../assets/avatar.png'),
+        avatar: require('../assets/avatar.png')
       }
     }
   }
-};
+}
 </script>
 
 <style scoped lang="scss">

@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
   env: {
-    node: true,
+    node: true
   },
   globals: {
     analytics: 'readonly',
@@ -13,7 +13,7 @@ module.exports = {
     '@vue/typescript'
   ],
   plugins: [
-    "only-warn"
+    'only-warn'
   ],
   rules: {
     'arrow-parens': 'off',
@@ -71,6 +71,15 @@ module.exports = {
       ],
       env: {
         mocha: true
+      }
+    },
+    {
+      files: [
+        '**/__tests__/*.{j,t}s?(x)',
+        '**/tests/unit/**/*.spec.{j,t}s?(x)'
+      ],
+      env: {
+        jest: true
       }
     }
   ]

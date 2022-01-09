@@ -623,4 +623,4 @@ export const mock = [
       }
     ]
   }
-];
+]

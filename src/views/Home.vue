@@ -1,8 +1,8 @@
 <template>
   <main class="container">
     <Hero
-      @searchServices="searchServices"
       :services-state-view="getServicesStateView"
+      @searchServices="searchServices"
     />
     <Services
       :services="displayedServices()"
@@ -22,12 +22,12 @@
 
 <script lang="ts">
 
-import Hero from '@/components/Hero.vue';
-import Pagination from '@/components/Pagination.vue';
-import {Service, ServicesStateView} from '@/shared/interfaces/catalog.interfaces';
-import Vue from 'vue';
-import {mapActions, mapGetters} from 'vuex';
-import Services from '../components/Services.vue';
+import Hero from '@/components/Hero.vue'
+import Pagination from '@/components/Pagination.vue'
+import { Service, ServicesStateView } from '@/shared/interfaces/catalog.interfaces'
+import Vue from 'vue'
+import { mapActions, mapGetters } from 'vuex'
+import Services from '../components/Services.vue'
 
 interface HomeData {
   listServices: Service[];
@@ -43,7 +43,7 @@ export default Vue.extend({
   data (): HomeData {
     return {
       listServices: []
-    };
+    }
   },
   computed: {
     ...mapGetters('ServicesModule', [
@@ -59,11 +59,11 @@ export default Vue.extend({
   },
   watch: {
     getServices (services: Service[]) {
-      this.listServices = services;
+      this.listServices = services
     }
   },
   mounted () {
-    this.fetchServicesActions();
+    this.fetchServicesActions()
   },
   methods: {
     ...mapActions('ServicesModule', [
@@ -74,27 +74,27 @@ export default Vue.extend({
       'setStatus'
     ]),
     searchServices (value: string): void {
-      console.log('value', value);
-      this.listServices = this.getFilterServices(value);
+      this.listServices = this.getFilterServices(value)
+
       if (this.listServices.length) {
-        this.setStatus(ServicesStateView.SERVICES);
+        this.setStatus(ServicesStateView.SERVICES)
       } else {
-        this.setStatus(ServicesStateView.EMPTY);
+        this.setStatus(ServicesStateView.EMPTY)
       }
 
-      this.resetPaginationAction();
+      this.resetPaginationAction()
     },
     displayedServices (): Service[] {
-      return this.getListServices(this.listServices);
+      return this.getListServices(this.listServices)
     },
     nextPage (): void {
-      this.nextPageAction(this.listServices.length);
+      this.nextPageAction(this.listServices.length)
     },
     previousPage (): void {
-      this.previousPageAction();
+      this.previousPageAction()
     }
   }
-});
+})
 </script>
 
 <style lang="scss">

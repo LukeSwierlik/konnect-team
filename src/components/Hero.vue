@@ -25,15 +25,16 @@
         placeholder="Search"
         :disabled="servicesStateView === viewState.ERROR"
         @input="debounceInput"
+        role="searchTerm"
       >
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
-import { ServicesStateView } from '@/shared/interfaces/catalog.interfaces';
-import Debounce from 'lodash/debounce';
+import Vue, { PropType } from 'vue'
+import { ServicesStateView } from '@/shared/interfaces/catalog.interfaces'
+import Debounce from 'lodash/debounce'
 
 export default Vue.extend({
   name: 'Hero',
@@ -46,17 +47,17 @@ export default Vue.extend({
   data () {
     return {
       viewState: ServicesStateView
-    };
+    }
   },
   created () {
-    this.debounceInput = Debounce(this.debounceInput, 500);
+    this.debounceInput = Debounce(this.debounceInput, 500)
   },
   methods: {
     debounceInput (e) {
-      this.$emit('searchServices', e.target.value);
+      this.$emit('searchServices', e.target.value)
     }
   }
-});
+})
 </script>
 
 <style scoped lang="scss">

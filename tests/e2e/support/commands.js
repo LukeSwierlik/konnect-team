@@ -24,7 +24,7 @@
 // -- This is will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
 
-const {mock} = require("../fixtures/mock");
+const { mock } = require('../fixtures/mock')
 
 Cypress.Commands.add('loadedServices', () => {
   cy.intercept({
@@ -32,32 +32,32 @@ Cypress.Commands.add('loadedServices', () => {
     url: '/api/service_packages'
   }, mock).as(
     'fetchServices'
-  );
+  )
 
-  cy.visit('/');
-  cy.wait('@fetchServices');
-});
+  cy.visit('/')
+  cy.wait('@fetchServices')
+})
 
 Cypress.Commands.add('loadedServicesEmpty', () => {
   cy.intercept({
     method: 'GET',
-    url: '/api/service_packages',
+    url: '/api/service_packages'
   }, []).as(
     'fetchServices'
-  );
+  )
 
-  cy.visit('/');
-  cy.wait('@fetchServices');
-});
+  cy.visit('/')
+  cy.wait('@fetchServices')
+})
 
 Cypress.Commands.add('loadedServicesFailure', () => {
   cy.intercept({
     method: 'GET',
-    url: '/api/service_packages',
+    url: '/api/service_packages'
   }, { statusCode: 500 }).as(
     'fetchServices'
-  );
+  )
 
-  cy.visit('/');
-  cy.wait('@fetchServices');
-});
+  cy.visit('/')
+  cy.wait('@fetchServices')
+})

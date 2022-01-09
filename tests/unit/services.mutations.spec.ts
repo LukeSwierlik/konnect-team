@@ -1,6 +1,5 @@
-import {expect} from 'chai'
-import {catalogMutations, MutationTypes} from '@/store/Services/services.mutations'
-import {ServicesState, ServicesStateView} from '@/shared/interfaces/catalog.interfaces'
+import { catalogMutations, MutationTypes } from '@/store/Services/services.mutations'
+import { ServicesState, ServicesStateView } from '@/shared/interfaces/catalog.interfaces'
 
 describe('mutations', () => {
   let servicesState: ServicesState
@@ -21,8 +20,8 @@ describe('mutations', () => {
   it('should set servicesStateView on LOADING', () => {
     catalogMutations[MutationTypes.LOADED_SERVICES](servicesState)
 
-    expect(servicesState.servicesStateView).to.equal(ServicesStateView.LOADING)
-  });
+    expect(servicesState.servicesStateView).toEqual(ServicesStateView.LOADING)
+  })
 
   it('should set servicesStateView on SERVICES and set services', () => {
     catalogMutations[MutationTypes.LOADED_SERVICES_SUCCESS](servicesState, [{
@@ -50,29 +49,29 @@ describe('mutations', () => {
       ]
     }])
 
-    expect(servicesState.servicesStateView).to.equal(ServicesStateView.SERVICES);
-    expect(servicesState.services.length).to.equal(2);
+    expect(servicesState.servicesStateView).toEqual(ServicesStateView.SERVICES)
+    expect(servicesState.services.length).toEqual(2)
   })
 
   it('should set servicesStateView on EMPTY and set services', () => {
     catalogMutations[MutationTypes.LOADED_SERVICES_SUCCESS](servicesState, [])
 
-    expect(servicesState.servicesStateView).to.equal(ServicesStateView.EMPTY);
-    expect(servicesState.services.length).to.equal(0);
+    expect(servicesState.servicesStateView).toEqual(ServicesStateView.EMPTY)
+    expect(servicesState.services.length).toEqual(0)
   })
 
   it('should set servicesStateView on LOADING', () => {
     catalogMutations[MutationTypes.SET_STATUS](servicesState, ServicesStateView.ERROR)
 
-    expect(servicesState.servicesStateView).to.equal(ServicesStateView.ERROR);
+    expect(servicesState.servicesStateView).toEqual(ServicesStateView.ERROR)
   })
 
   it('[MutationTypes.NEXT_PAGE]', () => {
-    catalogMutations[MutationTypes.NEXT_PAGE](servicesState, 62);
+    catalogMutations[MutationTypes.NEXT_PAGE](servicesState, 62)
 
-    expect(servicesState.pagination.currentPage).to.equal(2);
-    expect(servicesState.pagination.from).to.equal(12);
-    expect(servicesState.pagination.to).to.equal(24);
+    expect(servicesState.pagination.currentPage).toEqual(2)
+    expect(servicesState.pagination.from).toEqual(12)
+    expect(servicesState.pagination.to).toEqual(24)
   })
 
   it('[MutationTypes.PREVIOUS_PAGE]', () => {
@@ -85,11 +84,12 @@ describe('mutations', () => {
         to: 24
       }
     }
-    catalogMutations[MutationTypes.PREVIOUS_PAGE](newServicesState);
 
-    expect(servicesState.pagination.currentPage).to.equal(1);
-    expect(servicesState.pagination.from).to.equal(0);
-    expect(servicesState.pagination.to).to.equal(12);
+    catalogMutations[MutationTypes.PREVIOUS_PAGE](newServicesState)
+
+    expect(servicesState.pagination.currentPage).toEqual(1)
+    expect(servicesState.pagination.from).toEqual(0)
+    expect(servicesState.pagination.to).toEqual(12)
   })
 
   it('RESET_PAGINATION', () => {
@@ -102,10 +102,11 @@ describe('mutations', () => {
         to: 48
       }
     }
-    catalogMutations[MutationTypes.PREVIOUS_PAGE](newServicesState);
 
-    expect(servicesState.pagination.currentPage).to.equal(1);
-    expect(servicesState.pagination.from).to.equal(0);
-    expect(servicesState.pagination.to).to.equal(12);
+    catalogMutations[MutationTypes.PREVIOUS_PAGE](newServicesState)
+
+    expect(servicesState.pagination.currentPage).toEqual(1)
+    expect(servicesState.pagination.from).toEqual(0)
+    expect(servicesState.pagination.to).toEqual(12)
   })
 })

@@ -7,15 +7,15 @@
 </template>
 
 <script lang="ts">
-import Header from '@/components/Header.vue';
-import Vue from 'vue';
+import Header from '@/components/Header.vue'
+import Vue from 'vue'
 
 export default Vue.extend({
   name: 'App',
   components: {
     Header
   }
-});
+})
 </script>
 
 <style lang="scss">
