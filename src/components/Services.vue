@@ -45,7 +45,8 @@
     >
       <KEmptyState
         cta-is-hidden
-        data-cy="EmptyState">
+        data-cy="EmptyState"
+      >
         <template #title>
           No results
         </template>
@@ -75,11 +76,11 @@
 </template>
 
 <script lang="ts">
-import { ServicesStateView, Service } from '@/shared/interfaces/catalog.interfaces';
-import KCard from '@kongponents/kcard';
-import KEmptyState from '@kongponents/kemptystate';
-import { KSkeleton } from '@kongponents/kskeleton';
-import Vue, { PropType } from 'vue';
+import { ServicesStateView, Service } from '@/shared/interfaces/catalog.interfaces'
+import KCard from '@kongponents/kcard'
+import KEmptyState from '@kongponents/kemptystate'
+import { KSkeleton } from '@kongponents/kskeleton'
+import Vue, { PropType } from 'vue'
 
 export default Vue.extend({
   name: 'Services',
@@ -101,9 +102,9 @@ export default Vue.extend({
   data () {
     return {
       viewState: ServicesStateView
-    };
+    }
   }
-});
+})
 </script>
 
 <style lang="scss">

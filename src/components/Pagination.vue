@@ -2,10 +2,11 @@
   <section class="pagination">
     <button
       name="previous"
-      class="arrow"
+      class="arrow previous"
       data-cy="btnPreviousPage"
       :disabled="isFirstPage"
       @click="previousPage"
+      role="previousButton"
     >
       <img
         class="reversed"
@@ -19,7 +20,11 @@
       >
     </button>
 
-    <div class="directions" data-cy="directions">
+    <div
+      class="directions"
+      data-cy="directions"
+      role="directions"
+    >
       {{ pagingDirections }}
     </div>
 
@@ -29,6 +34,7 @@
       data-cy="btnNextPage"
       :disabled="isLastPage"
       @click="nextPage"
+      role="nextButton"
     >
       <img
         height="44px"
@@ -44,7 +50,7 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue from 'vue'
 
 export default Vue.extend({
   name: 'Pagination',
@@ -75,17 +81,17 @@ export default Vue.extend({
         greyArrow: require('../assets/Grey-Arrow.svg'),
         activeArrow: require('../assets/Active-Arrow.svg')
       }
-    };
+    }
   },
   methods: {
     nextPage () {
-      this.$emit('nextPage');
+      this.$emit('nextPage')
     },
     previousPage () {
-      this.$emit('previousPage');
+      this.$emit('previousPage')
     }
   }
-});
+})
 </script>
 
 <style lang="scss" scoped>

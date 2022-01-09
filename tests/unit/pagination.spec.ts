@@ -1,5 +1,4 @@
 import { mount } from '@vue/test-utils'
-import { expect } from 'chai'
 import Pagination from '@/components/Pagination.vue'
 
 describe('Pagination.vue', () => {
@@ -8,34 +7,44 @@ describe('Pagination.vue', () => {
       propsData: {
         isFirstPage: false,
         isLastPage: true,
-        pagingDirections: "1 of 12",
+        pagingDirections: '1 of 12',
         page: 1,
-        servicesLength: 62,
+        servicesLength: 62
       }
     })
 
-    console.log(wrapper.html())
+    expect(wrapper.find('div.directions').text()).toBe('1 of 12')
+  })
 
-    expect(wrapper.find("div.directions").text()).to.include("1 of 12")
-  });
-
-  it('check click next', () => {
+  it('check click next', async () => {
     const wrapper = mount(Pagination, {
       propsData: {
-        isFirstPage: false,
-        isLastPage: true,
-        pagingDirections: "1 of 12",
+        isFirstPage: true,
+        isLastPage: false,
+        pagingDirections: '1 of 12',
         page: 1,
-        servicesLength: 62,
+        servicesLength: 62
       }
-    })
+    });
 
-    console.log(wrapper.html())
+    await wrapper.find('button.arrow.next').trigger('click')
 
-    wrapper.find('button.arrow.next').trigger('click');
+    expect(wrapper.emitted()?.nextPage).toBeTruthy();
+  })
 
-    console.log(wrapper.emitted())
+  it('check click previous', async () => {
+    const wrapper = mount(Pagination, {
+      propsData: {
+        isFirstPage: true,
+        isLastPage: true,
+        pagingDirections: '1 of 12',
+        page: 1,
+        servicesLength: 62
+      }
+    });
 
-    expect(wrapper.find("div.directions").text()).to.include("1 of 12")
-  });
+    await wrapper.find('button.arrow.previous').trigger('click')
+
+    expect(wrapper.emitted()?.previousPage).toBeFalsy();
+  })
 })

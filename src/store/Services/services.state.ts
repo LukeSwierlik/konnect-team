@@ -1,4 +1,4 @@
-import { ServicesState, ServicesStateView } from '@/shared/interfaces/catalog.interfaces';
+import { ServicesState, ServicesStateView } from '@/shared/interfaces/catalog.interfaces'
 
 export const servicesState: ServicesState = {
   servicesStateView: ServicesStateView.EMPTY,
@@ -9,4 +9,4 @@ export const servicesState: ServicesState = {
     to: 12,
     itemCount: 12
   }
-};
+}
