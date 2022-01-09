@@ -24,7 +24,7 @@
     </div>
 
     <button
-      class="arrow"
+      class="arrow next"
       name="next"
       data-cy="btnNextPage"
       :disabled="isLastPage"

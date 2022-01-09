@@ -8,7 +8,6 @@ describe('Hero.vue', () => {
     const wrapper = mount(Hero, {
       propsData: {
         services: ServicesStateView.SERVICES,
-        searchServices: () => {}
       }
     })
 
